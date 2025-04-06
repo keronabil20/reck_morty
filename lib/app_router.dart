@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reck_morty/constants/strings.dart';
+import 'package:reck_morty/data/models/character.dart';
 import 'package:reck_morty/data/repos/characters_repo.dart';
 import 'package:reck_morty/data/web/characters_web_services.dart';
 import 'package:reck_morty/logic/cubit/characters_cubit.dart';
@@ -26,11 +27,11 @@ class AppRouter {
                 ));
 
       case detailedCharacters:
+      final character = settings.arguments as Character;
+
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => charactersCubit,
-                  child: const DetailedCharacters(),
-                ));
+            builder: (_) =>  DetailedCharacters(character: character,),
+                );
     }
     return null;
   }
