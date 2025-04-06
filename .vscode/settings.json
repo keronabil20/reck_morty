@@ -1,8 +1,9 @@
 {
-    "cSpell.words": [
-        "appbar",
-        "cupertino",
-        "morty",
-        "Schyler"
-    ]
+  "cSpell.words": [
+    "appbar",
+    "cupertino",
+    "morty",
+    "Schyler"
+  ],
+  "dart.flutterSdkPath": ".fvm/versions/3.27.0"
 }
