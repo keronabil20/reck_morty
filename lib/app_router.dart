@@ -8,30 +8,30 @@ import 'package:reck_morty/presentation/screens/detailed_characters.dart';
 import 'presentation/screens/characters.dart';
 
 class AppRouter {
-
   late CharactersRepo charactersRepo;
   late CharactersCubit charactersCubit;
-  AppRouter(){
-    charactersRepo=CharactersRepo(charactersWebServices: CharactersWebServices());
-    charactersCubit =CharactersCubit( charactersRepo);
+  AppRouter() {
+    charactersRepo =
+        CharactersRepo(charactersWebServices: CharactersWebServices());
+    charactersCubit = CharactersCubit(charactersRepo);
   }
 
-Route? generateRoute(RouteSettings settings) {
-  switch (settings.name) {
-    case characterScreen:
-      return MaterialPageRoute(
-        builder: (_) => BlocProvider(
-          create: (context) => charactersCubit,
-          child: CharactersScreen(charactersCubit: charactersCubit,),
-        ));
+  Route? generateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case characterScreen:
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => charactersCubit,
+                  child: const CharactersScreen(),
+                ));
 
-    case detailedCharacters:
-      return MaterialPageRoute(
-        builder: (_) => BlocProvider(
-          create: (context) => charactersCubit,
-          child: const DetailedCharacters(),
-        ));
+      case detailedCharacters:
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => charactersCubit,
+                  child: const DetailedCharacters(),
+                ));
+    }
+    return null;
   }
-  return null;
-}
 }
